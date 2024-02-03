@@ -1,5 +1,6 @@
 package com.api.pessoasapi.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
@@ -8,7 +9,9 @@ import java.time.LocalDate;
 import java.time.Period;
 @Data
 @Entity
-@Table(name = "/pessoas")
+@Table(name = "pessoas")
+@JsonIgnoreProperties(ignoreUnknown = true)
+
 public class Pessoa {
 
 
@@ -16,32 +19,27 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @NotBlank
+
     @Column
     private String nome;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Endereco endereco;
 
-    @NotBlank
     @Column(unique = true)
     private String email;
 
-    @NotBlank
     @Column(length = 11, nullable = false,unique = true)
     private String cpf;
 
-    @NotBlank
+
     @Column(length = 9, nullable = false,unique = true )
     private String rg;
 
-    @NotBlank
+
     @Column
     private LocalDate dataDeNascimento;
 
-    @Transient
-    @NotBlank
-    @Column
     private int idade;
 
 

@@ -1,27 +1,29 @@
 package com.api.pessoasapi.dto;
 
-public class PessoaDto {
-    private String nome;
+import com.api.pessoasapi.model.Endereco;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.OneToOne;
+import jakarta.validation.constraints.NotBlank;
+import lombok.Data;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+@Data
+@JsonIgnoreProperties(ignoreUnknown = true)
+public class PessoaDto implements Serializable {
+
     private long id;
+    @NotBlank
+    private String nome;
+    @NotBlank
+    private EnderecoDto endereco;
+    @NotBlank
+    private String email;
+    @NotBlank
+    private String cpf;
+    @NotBlank
+    private String rg;
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public PessoaDto(String nome, long id){
-        this.nome = nome;
-        this.id = id;
-    }
 }

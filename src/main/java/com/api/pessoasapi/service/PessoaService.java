@@ -1,5 +1,7 @@
 package com.api.pessoasapi.service;
 
+import com.api.pessoasapi.configRabbitMQ.QueueSender;
+import com.api.pessoasapi.configRabbitMQ.SenderConfig;
 import com.api.pessoasapi.dto.PessoaDto;
 import com.api.pessoasapi.pessoaMapper.PessoaMapper;
 import com.api.pessoasapi.model.Pessoa;
@@ -18,6 +20,8 @@ public class PessoaService {
     private PessoaReposirory repositoryPessoas;
     @Autowired
     private PessoaMapper mapperPessoas;
+    @Autowired
+    private QueueSender queueSender;
 
 
     public PessoaDto getPessoaPorNome(String nome) {
@@ -44,6 +48,7 @@ public class PessoaService {
     public PessoaDto cadastrarPessoa(PessoaDto pessoasDto) {
         Pessoa pessoas = mapperPessoas.converterParaPessoa(pessoasDto);
         pessoas = repositoryPessoas.save(pessoas);
+        queueSender.send(pessoasDto);
         PessoaDto pessoasDto1 = mapperPessoas.converterParaDto(pessoas);
         return pessoasDto1;
     }
