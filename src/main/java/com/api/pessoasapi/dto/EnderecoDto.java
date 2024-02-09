@@ -13,11 +13,11 @@ public class EnderecoDto implements Serializable {
     private long id;
 
     @NotBlank
+    private String rua;
+    @NotBlank
     private String logradouro;
     @NotBlank
     private String numero;
-    @NotBlank
-    private String rua;
 
 
 }

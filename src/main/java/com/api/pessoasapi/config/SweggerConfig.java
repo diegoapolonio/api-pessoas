@@ -27,14 +27,14 @@
 //                .build()
 //                .apiInfo(metaInfo());
 //}
-//    private ApiInfo metaInfo() {
+//   private ApiInfo metaInfo() {
 //        ApiInfo apiInfo = new ApiInfo(
 //                "Pessoa API REST",
-//                "API REST de cadastro pessoas",
-//                "1.0",
-//                "Terms of Service",
+//               "API REST de cadastro pessoas",
+//               "1.0",
+//               "Terms of Service",
 //                new Contact("Diego Apolonio",null,"diegoapoloniodasilva@gmail.com"),
-//                "Apache License Version 2.0",
+//              "Apache License Version 2.0",
 //                "https://www.apache.org/licesen.html",new ArrayList<VendorExtension>()
 //
 //        );

@@ -2,7 +2,6 @@ package com.api.pessoasapi.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,7 +9,7 @@ import java.io.Serializable;
 
 @Data
 @Entity
-@Table(name = "endereco")
+@Table(name = "enderecos")
 @JsonIgnoreProperties(ignoreUnknown = true)
 
 public class Endereco implements Serializable {
@@ -23,7 +22,6 @@ public class Endereco implements Serializable {
 
     @Column
     private String rua;
-
     @Column
     private String logradouro;
     @Column
