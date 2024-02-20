@@ -6,6 +6,7 @@ import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.OneToOne;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -21,8 +22,10 @@ public class PessoaDto implements Serializable {
     private EnderecoDto endereco;
     @NotBlank
     private String email;
+
     @NotBlank
     private String cpf;
+
     @NotBlank
     private String rg;
 

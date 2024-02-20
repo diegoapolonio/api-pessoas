@@ -28,11 +28,11 @@ public class Pessoa {
     @Column(unique = true)
     private String email;
 
-    @Column(length = 11, nullable = false,unique = true)
+    @Column(length = 20, nullable = false,unique = true)
     private String cpf;
 
 
-    @Column(length = 9, nullable = false,unique = true )
+    @Column(length = 20, nullable = false,unique = true )
     private String rg;
 
 

@@ -24,7 +24,7 @@ public class PessoaService {
     private QueueSender queueSender;
 
 
-    public PessoaDto PessoaPorNome(String nome) {
+    public PessoaDto buscarPorNome(String nome) {
         return repositoryPessoas.getPessoaPorNome(nome)
                 .map(pessoa ->mapperPessoas.converterParaDto(pessoa) ).orElseThrow(
                         ()->new RecordNotFoundExcepition(nome));
